@@ -27,6 +27,22 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Email settings
+# 이메일, 비밀번호 가져오기
+import json
+with open('/Users/iseongmin/workspaces/RestaurantShare-with-Django/RestaurantShare/sendEmail/email.json', 'r') as f:
+    json_data = json.load(f)
+email = json_data['email']
+password = json_data['password']
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = email
+EMAIL_HOST_PASSWORD = password
+
 
 # Application definition
 
